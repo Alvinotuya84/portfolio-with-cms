@@ -23,6 +23,19 @@ export interface PageInfo extends SanityBody{
     profilePic:Image;
     description:string;
     subDescription:string;
+    pageTheme:Color;
+}
+export interface Color {
+    _type:"color";
+    hex: string;
+    alpha:number;
+    hsl: {
+      _type: string;
+      h: number;
+      s: number;
+      l: number;
+      a: number;}
+
 }
 export interface Technology extends SanityBody{
     _type:"skill";

@@ -32,10 +32,12 @@ export default function Home(     { pageInfo,
   skills,
   socials}:Props) {
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20
+    <div style={{
+      backgroundColor:pageInfo.pageTheme.hex
+    }} className=" text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0  scrollbar-thin scrollbar-track-transparent
      scrollbar-thumb-[#F7AB0A]/80">
       <Head>
-        <title>dfg{pageInfo?.name}</title>
+        <title>{pageInfo?.name}</title>
         <meta name="description" content="Alvin Otuya Portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -47,10 +49,10 @@ export default function Home(     { pageInfo,
         <About pageInfo={pageInfo}/>
       </section>
       <section id="experience" className="snap-center">
-        <WorkExperience/>
+        <WorkExperience experiences={experiences}/>
       </section>
       <section id="skills" className="snap-start">
-        <Skills/>
+        <Skills skills={skills}/>
       </section>
       <section id="projects" className="snap-start">
         <Projects/>
@@ -87,6 +89,6 @@ export const getStaticProps: GetStaticProps<Props>=async()=>{
       skills,
       socials,
     },
-    revalidate:20
+    revalidate:300
    }
 }
